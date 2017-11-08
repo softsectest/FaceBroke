@@ -11,7 +11,7 @@ COPY pom.xml /code/
 RUN mvn verify clean --fail-never
 
 COPY . /code/
-COPY facebroke.ks / 
+#COPY facebroke.ks / 
 COPY server.xml /usr/local/tomcat/conf/
 
 RUN mvn package

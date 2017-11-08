@@ -44,7 +44,7 @@
   </filter-mapping>
   
   
-  <listener>
+  <!--<listener>
   	<listener-class>org.owasp.csrfguard.CsrfGuardServletContextListener</listener-class>
   </listener>
   <listener>
@@ -67,5 +67,5 @@
   <filter-mapping>
   	<filter-name>CSRFGuard</filter-name> 
 	<url-pattern>/*</url-pattern>
-  </filter-mapping>
+  </filter-mapping>-->
 </web-app>
