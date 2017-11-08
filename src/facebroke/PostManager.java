@@ -160,7 +160,8 @@ public class PostManager extends HttpServlet {
 		String wall_id_string = req.getParameter("user_id");
 		String creator_id_string = req.getParameter("creator_id");
 		String type_string = req.getParameter("type");
-		String content = Encode.forHtml(req.getParameter("content"));
+		//String content = Encode.forHtml(req.getParameter("content"));
+		String content = req.getParameter("content");
 		String on_wall = req.getParameter("on_wall");
 		
 		log.info("Received POST for a new post");
