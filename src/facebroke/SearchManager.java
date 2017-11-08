@@ -10,11 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.lucene.search.Query;
-import org.hibernate.search.FullTextQuery;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
-import org.hibernate.search.query.dsl.QueryBuilder;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,7 +77,13 @@ public class SearchManager extends HttpServlet {
 			// Forward to JSP to handle
 			req.getRequestDispatcher("search_results.jsp").forward(req, res);
 		}
-		FullTextSession fts = Search.getFullTextSession(HibernateUtility.getSessionFactory().openSession());
+
+		Session sess = HibernateUtility.getSessionFactory().openSession();
+		List<User> result = sess.createSQLQuery("select * from Users WHERE ID = \'%" + queryString + "%\'").addEntity(User.class).list();
+		
+
+
+		/*FullTextSession fts = Search.getFullTextSession(HibernateUtility.getSessionFactory().openSession());
 		
 		fts.beginTransaction();
 		
@@ -99,7 +101,7 @@ public class SearchManager extends HttpServlet {
 		FullTextQuery hibQuery = fts.createFullTextQuery(query, User.class);
 		
 		@SuppressWarnings("unchecked")
-		List<User> result = hibQuery.getResultList();
+		List<User> result = hibQuery.getResultList();*/
 		
 		log.info("Got {} results for \'{}\'",result.size(),ValidationSnipets.sanitizeCRLF(queryString));
 		
@@ -110,7 +112,7 @@ public class SearchManager extends HttpServlet {
 		// Forward to JSP to handle
 		req.getRequestDispatcher("search_results.jsp").forward(req, res);
 		
-		fts.getTransaction().commit();
-		fts.close();
+		//fts.getTransaction().commit();
+		//fts.close();
 	}
 }
