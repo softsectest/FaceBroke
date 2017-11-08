@@ -79,7 +79,7 @@ public class SearchManager extends HttpServlet {
 		}
 
 		Session sess = HibernateUtility.getSessionFactory().openSession();
-		List<User> result = sess.createSQLQuery("select * from Users WHERE ID = \'%" + queryString + "%\'").addEntity(User.class).list();
+		List<User> result = sess.createSQLQuery("select * from Users WHERE fname like \'%" + queryString + "%\'").addEntity(User.class).list();
 		
 
 
