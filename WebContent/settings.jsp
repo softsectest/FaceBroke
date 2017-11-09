@@ -60,9 +60,6 @@
                     <br>
                       <br>
 
-                        <c:set var="csrf_tokenname"><csrf:tokenname/></c:set>
-                        <c:set var="csrf_tokenvalue"><csrf:tokenvalue uri="image"/></c:set>
-
                         <div class="row">
                           <div class="col-md-4 col-md-push-4">
                             <form action="image?${csrf_tokenname}=${csrf_tokenvalue}" method="post" enctype="multipart/form-data">
