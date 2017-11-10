@@ -316,6 +316,11 @@ public class PostManager extends HttpServlet {
 			Post p  = posts.get(0);
 			
 			if(p.getCreator().equals(u) || u.getRole().equals(User.UserRole.ADMIN) || p.getWall().getUser().equals(u)) {
+
+				for(Comment c: p.getComments()) {
+					sess.delete(c);
+					log.info("Deleted Comment with ID: {}",c.getId());
+				}
 				
 				for(Comment c: p.getComments()) {
 					sess.delete(c);
