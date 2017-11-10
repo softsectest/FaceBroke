@@ -322,11 +322,6 @@ public class PostManager extends HttpServlet {
 					log.info("Deleted Comment with ID: {}",c.getId());
 				}
 				
-				for(Comment c: p.getComments()) {
-					sess.delete(c);
-					log.info("Deleted Comment with ID: {}",c.getId());
-				}
-				
 				sess.delete(p);
 				log.info("Deleted Post with ID: {}",p.getId());
 			}else {
