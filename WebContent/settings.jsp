@@ -76,5 +76,15 @@
                                       </form>
                                     </div>
                                   </div>
+                                  
+                                  
+                    <br>
+                      <br>
+
+                        <div class="row">
+                          <div class="col-md-4 col-md-push-4">
+                          	<a href="demo?userid=${target_user_id}" class="btn btn-default btn-primary">Get My DB Representation</a>
+                          </div>
+                        </div>
 
                                   <%@ include file="footer.jsp"%>
