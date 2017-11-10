@@ -1,6 +1,6 @@
 <%@ include file="header.jsp"%>
 
-<h2>User Results</h2>
+<h2>User Results <small>for "${query}"</small></h2>
 <br>
 
 <div class="row">

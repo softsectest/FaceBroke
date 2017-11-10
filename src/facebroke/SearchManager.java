@@ -116,6 +116,7 @@ public class SearchManager extends HttpServlet {
 		
 		// Pass a results object to JSTL to handle
 		req.setAttribute("user_rows", result);
+		req.setAttribute("query", queryString);
 		
 		// Forward to JSP to handle
 		req.getRequestDispatcher("search_results.jsp").forward(req, res);
