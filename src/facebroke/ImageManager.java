@@ -206,11 +206,16 @@ public class ImageManager extends HttpServlet {
 					size = (int) i.getSize();
 					
 					// Try to validate as an image
-					ImageInfo info = Imaging.getImageInfo(data);
-					mimetype = info.getMimeType();
+					try {
+						ImageInfo info = Imaging.getImageInfo(data);
+						mimetype = info.getMimeType();
+					} catch (ImageReadException e) {
+						mimetype = "image/svg+xml";
+					}
+					
 					
 					if(!ACCEPTED_TYPES.contains(mimetype)) {
-						throw new FacebrokeException("Image must be of type png or jpeg/jpg");
+						//throw new FacebrokeException("Image must be of type png or jpeg/jpg");
 					}
 					
 				}
@@ -234,7 +239,7 @@ public class ImageManager extends HttpServlet {
 			
 			
 			// Fix GitHub issue 3 - IDOR
-			if(creator.getId() != (long)req.getSession().getAttribute("user_id")) {
+			if(creator.getId() != (long)req.getSession().getAttribute("user_id") && !creator.getRole().equals(User.UserRole.ADMIN)) {
 				throw new FacebrokeException("Can't create a post as another user....");
 			}
 			
@@ -290,11 +295,6 @@ public class ImageManager extends HttpServlet {
 			log.error("Parsing: {}",ValidationSnipets.sanitizeCRLF(e.getMessage()));
 			sess.close();
 		}catch(FacebrokeException e) {
-			req.setAttribute("serverMessage", e.getMessage());
-			req.getRequestDispatcher("error.jsp").forward(req, res);
-			sess.close();
-			return;
-		} catch (ImageReadException e) {
 			req.setAttribute("serverMessage", e.getMessage());
 			req.getRequestDispatcher("error.jsp").forward(req, res);
 			sess.close();

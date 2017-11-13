@@ -59,7 +59,7 @@
                                           </li>
                                           <li class=" dropdown">
                                             <a href="#" class="dropdown-toggle user-dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                              <img src="image?id=${e:forHtml(sessionScope.user_pic_id)}" alt="User profile picture" class="img-rounded profile-header-img">${e:forHtml(sessionScope.user_fname)}
+                                              <object data="image?id=${e:forHtml(sessionScope.user_pic_id)}" alt="User profile picture" class="img-rounded profile-header-img"></object>${e:forHtml(sessionScope.user_fname)}
                                                 <span class="caret"></span>
                                               </a>
                                               <ul class="dropdown-menu">
