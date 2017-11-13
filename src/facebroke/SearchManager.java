@@ -76,6 +76,8 @@ public class SearchManager extends HttpServlet {
 			
 			// Forward to JSP to handle
 			req.getRequestDispatcher("search_results.jsp").forward(req, res);
+			
+			return;
 		}
 		
 		String lowerQueryString = queryString.toLowerCase();
@@ -87,7 +89,11 @@ public class SearchManager extends HttpServlet {
 		tmp.append("OR LOWER(username) LIKE \'%" + lowerQueryString + "%\' ");
 
 		Session sess = HibernateUtility.getSessionFactory().openSession();
+		sess.beginTransaction();
 		List<User> result = sess.createSQLQuery(tmp.toString()).addEntity(User.class).list();
+		
+		sess.getTransaction().commit();
+		sess.close();
 		
 
 
