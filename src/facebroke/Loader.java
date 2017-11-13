@@ -181,6 +181,20 @@ public class Loader {
 		matt.setWall(w);
 		sess.save(matt);
 		sess.save(w);
+		
+		
+		/* Mork 
+		 * 
+		 */
+		User mork = new User("Mork", "Zickerbarg", "mork", "mork.zick@facebroke.com", new GregorianCalendar(1990, 05, 02));
+		mork.updatePassword("password");
+		mork.setRole(UserRole.ADMIN);
+		Wall w2 = new Wall(mork);
+		mork.setWall(w2);
+		sess.save(mork);
+		sess.save(w2);
+		
+		
 		sess.getTransaction().commit();
 
 		sess.close();
