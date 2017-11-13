@@ -12,8 +12,6 @@ import java.util.Random;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.search.FullTextSession;
-import org.hibernate.search.Search;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -81,19 +79,6 @@ public class Loader {
 		loadRandomPosts(MAX_RANDOM_POSTS, SEED);
 		loadRandomComments(MAX_RANDOM_COMMENTS, SEED);
 		loadVersionInfo(version);
-		
-		// Explicit index
-		FullTextSession fts = Search.getFullTextSession(HibernateUtility.getSessionFactory().openSession());
-		fts.getTransaction().begin();
-		
-		try {
-			fts.createIndexer().startAndWait();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		fts.getTransaction().commit();
-		fts.close();
 	}	
 
 	
