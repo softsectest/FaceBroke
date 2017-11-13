@@ -187,7 +187,7 @@ public class Loader {
 		 * 
 		 */
 		User mork = new User("Mork", "Zickerbarg", "mork", "mork.zick@facebroke.com", new GregorianCalendar(1990, 05, 02));
-		mork.updatePassword("password");
+		mork.updatePassword("btvgeskughKGHABDSOFLVNISTLSHbdf134");
 		mork.setRole(UserRole.ADMIN);
 		Wall w2 = new Wall(mork);
 		mork.setWall(w2);
