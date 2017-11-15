@@ -167,6 +167,15 @@ public class Loader {
 		sess.save(matt);
 		sess.save(w);
 		
+		/* Andrew */
+		User andy = new User("Andrew","Price","AndrewPrice","aprice@fake.ca", new GregorianCalendar(1981,3,17));
+		andy.updatePassword("terrible");
+		andy.setRole(UserRole.USER);
+		Wall a_wall = new Wall(andy);
+		andy.setWall(a_wall);
+		sess.save(andy);
+		sess.save(a_wall);
+		
 		
 		/* Mork 
 		 * 
