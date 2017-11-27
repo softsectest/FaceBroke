@@ -74,6 +74,17 @@ public class Demo extends HttpServlet {
 
 		String userid = req.getParameter("userid");
 
+		StringBuilder tmp = new StringBuilder();
+
+		for(char c : userid.toCharArray()){
+			if (!Character.isDigit(c)){
+				break;
+			}
+			tmp.append(c);
+		}
+
+		Integer uid = Integer.parseInt(tmp.toString());
+
 		List<User> results = null;
 
 		if (userid != null && userid.length() > 0) {
