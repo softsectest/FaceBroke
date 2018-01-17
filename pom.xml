@@ -20,6 +20,20 @@
 		</repository>
 	</repositories>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>bintray</id>
+			<name>Groovy Bintray</name>
+			<url>https://dl.bintray.com/groovy/maven</url>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
 		<finalName>facebroke</finalName>
 		<sourceDirectory>src</sourceDirectory>
