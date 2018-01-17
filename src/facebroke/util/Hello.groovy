@@ -2,6 +2,6 @@ package facebroke.util;
 
 class Hello {
 	static def message() {
-		"Hello World"
+		"Hello from a Groovy class"
 	}
 }

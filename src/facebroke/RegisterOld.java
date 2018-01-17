@@ -27,16 +27,16 @@ import facebroke.util.ValidationSnipets;
  * 
  * @author matt @ Software Secured
  */
-@WebServlet("/register")
-public class Register extends HttpServlet {
+@WebServlet("/register-old")
+public class RegisterOld extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static Logger log = LoggerFactory.getLogger(Register.class);
+	private static Logger log = LoggerFactory.getLogger(RegisterOld.class);
 	
 	
 	/**
 	 * Call parent Servlet constructor
 	 */
-	public Register() {
+	public RegisterOld() {
 		super();
 	}
 
@@ -182,7 +182,7 @@ public class Register extends HttpServlet {
 		}
 		
 		if (!ValidationSnipets.passwordFormatValid(pass1)) {
-			req.setAttribute("authMessage", "Password must be at least 8 characters long and contain only a-z,A-z,0-9,!,#,$,^");
+			req.setAttribute("authMessage","Password must be at least 8 characters long and contain only a-z,A-z,0-9,!,#,$,^");
 			reqDis.forward(req, res);
 			return;
 		}

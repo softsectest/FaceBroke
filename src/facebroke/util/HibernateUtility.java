@@ -36,7 +36,6 @@ public class HibernateUtility {
 
 	public static synchronized SessionFactory getSessionFactory() {
 		
-		log.info("HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
 		log.info((String) Hello.message());
 		
 		if (factory == null) {
