@@ -16,6 +16,8 @@ import org.slf4j.LoggerFactory;
 import facebroke.Loader;
 import facebroke.model.User;
 
+import facebroke.util.Hello;
+
 
 /**
  * FaceBroke uses Hibernate as it's ORM. To simplify things, every FaceBroke method must
@@ -34,6 +36,8 @@ public class HibernateUtility {
 
 	public static synchronized SessionFactory getSessionFactory() {
 		
+		log.info("HELOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+		log.info((String) Hello.message());
 		
 		if (factory == null) {
 			factory = buildSessionFactory();
