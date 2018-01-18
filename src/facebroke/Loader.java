@@ -217,7 +217,7 @@ public class Loader {
 			Wall w = walls.get(i);
 			
 			for (int j = 0; j < r.nextInt(maxNumPosts + 1); j++) {
-				String content = lg.getSentences(2);
+				String content = (String)lg.getSentences(2);
 				User creator = walls.get(r.nextInt(walls.size())).getUser();
 						
 				Post p = new Post(w, creator, Post.PostType.TEXT, content);
@@ -259,7 +259,7 @@ public class Loader {
 			Post p = posts.get(i);
 			
 			for (int j = 0; j < r.nextInt(maxNumComments + 1); j++) {
-				String content = lg.getWords(4 + r.nextInt(5));
+				String content = (String)lg.getWords(4 + r.nextInt(5));
 				User creator = posts.get(r.nextInt(posts.size())).getCreator();
 				
 				Comment c = new Comment(creator, p, content);

@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.security.SecureRandom;
 import java.util.Random;
 
-public class LoremGenerator {
+public class LoremGeneratorOld {
 	
 	// Word list lifted from https://gist.github.com/rviscomi/1479649
 	private static final String[] words = {"lorem", "ipsum", "dolor", "sit", "amet", "consectetur",
@@ -50,7 +50,7 @@ public class LoremGenerator {
 	 * @param avgSentenceLength
 	 * @param minSentenceLength
 	 */
-	public LoremGenerator (Long seed) {
+	public LoremGeneratorOld (Long seed) {
 		
 		if (seed == null) {
 			r = new SecureRandom();

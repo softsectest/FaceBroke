@@ -111,7 +111,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>42.1.4.jre7</version>
+			<version>42.2.0.jre7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -136,7 +136,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-text</artifactId>
-			<version>1.1</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -166,7 +166,7 @@
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-jspc-maven-plugin</artifactId>
-			<version>9.4.7.v20170914</version>
+			<version>9.4.8.v20171121</version>
 		</dependency>
 		<dependency>
 			<groupId>org.owasp</groupId>
