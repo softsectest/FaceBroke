@@ -51,6 +51,11 @@ class Register extends HttpServlet {
 		
 		def dob
 		
+		// THIS IS A DELIBERATE BUG, SHOULD BE FLAGGED AS CRLF INJECTION
+		def usernameVuln = req.getParameter("regUsername")
+		log.info("Allow CRLF injection: {}", usernameVuln)
+		// END BUG
+		
 		
 		req.setAttribute("regUsername", username)
 		req.setAttribute("regEmail", email)

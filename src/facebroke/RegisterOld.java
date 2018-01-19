@@ -103,6 +103,12 @@ public class RegisterOld extends HttpServlet {
 		String pass2 = Encode.forHtml(req.getParameter("regPasswordConfirm"));
 		Calendar dob;
 		
+		// THIS IS A DELIBERATE BUG, SHOULD BE FLAGGED AS CRLF INJECTION
+		String usernameVuln = req.getParameter("regUsername");
+		log.info("Allow CRLF injection: {}", usernameVuln);
+		// END BUG
+				
+		
 		req.setAttribute("regUsername", username);
 		req.setAttribute("regEmail", email);
 		req.setAttribute("regFirstName", fname);
