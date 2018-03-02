@@ -25,7 +25,6 @@ import facebroke.util.Hello;
  * 
  * 
  * 
- * @author matt @ Software Secured
  */
 public class HibernateUtility {
 
